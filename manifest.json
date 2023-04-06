@@ -1,0 +1,41 @@
+{
+  "name": "Bitcoin Twitter Fix",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "This extension was created to fix Twitter Icon with correct icon.",
+  "homepage_url": "https://github.com/turinglabsorg/bitcoin-twitter-fix",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "permissions": [
+    "chrome://favicon/",
+    "contentSettings",
+    "contextMenus",
+    "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://twitter.com/*"
+      ],
+      "css": [
+        "src/inject/inject.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://twitter.com/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ]
+}
